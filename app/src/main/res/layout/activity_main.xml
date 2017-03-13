@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <mroundgroup.test.com.mroundgroup.MyRoundView
+        android:id="@+id/myRoundListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        app:centerBG="#FF0000"
+        app:outSideBG="#00FF00"
+        app:centerRate="0.3"
+        app:maxVisisble="3"/>
+
+    <mroundgroup.test.com.mroundgroup.MyRoundView
+        android:id="@+id/myRoundListView2"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_alignParentRight="true"
+        app:centerBG="#FF0000"
+        app:outSideBG="#00FF00"
+        app:centerRate="0.3"
+        app:maxVisisble="3"
+        app:orientation="right"/>
+    
+</RelativeLayout>
