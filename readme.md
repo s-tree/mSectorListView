@@ -1,1 +1,1 @@
-![mahua](pic.jpg)
+![mahua](pic.png)
