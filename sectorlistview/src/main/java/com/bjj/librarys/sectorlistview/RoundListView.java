@@ -196,7 +196,7 @@ public class RoundListView extends ViewGroup {
     @Override
     public boolean dispatchTouchEvent(MotionEvent event){
         if(baseAdapter == null || baseAdapter.getCount() <= 1){
-            return true;
+            return super.dispatchTouchEvent(event);
         }
 
         float x = event.getX();
