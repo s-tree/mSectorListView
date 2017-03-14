@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.view.animation.AnimationSet;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 
@@ -167,33 +168,85 @@ public class SectorListView extends FrameLayout implements SectorView.TouchListe
         animatorSet.start();
     }
 
+    public void openMenu(){
+        openMenu(false);
+    }
+
+    private void openMenu(boolean needDissCenter){
+        if(isShown){
+            return;
+        }
+        AnimatorSet animatorSet = new AnimatorSet();
+        AnimatorSet.Builder builder = null;
+        if(needDissCenter){
+            builder = animatorSet
+                        .play(closeAnimator1)
+                        .with(closeAnimator2)
+                        .with(showAnimator3);
+        }else{
+            builder = animatorSet
+                        .play(showAnimator3);
+        }
+        builder.with(showAnimator4)
+                .with(showAnimator5)
+                .with(showAnimator6)
+                .with(showAnimator7)
+                .with(showAnimator8)
+                .with(showAnimator9)
+                .with(showAnimator10);
+        animatorSet.start();
+    }
+
+    public void closeMenu(){
+        closeMenu(false);
+    }
+
+    private void closeMenu(boolean needDissCenter){
+        if(!isShown){
+            return;
+        }
+        AnimatorSet animatorSet = new AnimatorSet();
+        AnimatorSet.Builder builder = null;
+        if(needDissCenter){
+            builder = animatorSet
+                    .play(closeAnimator1)
+                    .with(closeAnimator2)
+                    .with(closeAnimator3);
+        }else{
+            builder = animatorSet
+                    .play(closeAnimator3);
+        }
+        builder.with(closeAnimator4)
+                .with(closeAnimator5)
+                .with(closeAnimator6)
+                .with(closeAnimator7)
+                .with(closeAnimator8)
+                .with(closeAnimator9)
+                .with(closeAnimator10);
+        animatorSet.start();
+    }
+
     @Override
     public void up() {
-        AnimatorSet animatorSet = new AnimatorSet();
         if(isShown){
-            animatorSet.play(closeAnimator1)
-                    .with(closeAnimator2)
-                    .with(closeAnimator3)
-                    .with(closeAnimator4)
-                    .with(closeAnimator5)
-                    .with(closeAnimator6)
-                    .with(closeAnimator7)
-                    .with(closeAnimator8)
-                    .with(closeAnimator9)
-                    .with(closeAnimator10);
+            closeMenu(true);
         }else{
-            animatorSet.play(closeAnimator1)
-                    .with(closeAnimator2)
-                    .with(showAnimator3)
-                    .with(showAnimator4)
-                    .with(showAnimator5)
-                    .with(showAnimator6)
-                    .with(showAnimator7)
-                    .with(showAnimator8)
-                    .with(showAnimator9)
-                    .with(showAnimator10);
+            openMenu(true);
         }
         isShown = !isShown;
-        animatorSet.start();
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if(centerView != null)
+            centerView.setTouchListener(this);
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if(centerView != null)
+            centerView.setTouchListener(null);
     }
 }
