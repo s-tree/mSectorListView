@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <mroundgroup.test.com.mroundgroup.MyRoundView
+    <com.bjj.librarys.sectorlistview.SectorListView
         android:id="@+id/myRoundListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,7 +15,7 @@
         app:centerRate="0.3"
         app:maxVisisble="3"/>
 
-    <mroundgroup.test.com.mroundgroup.MyRoundView
+    <com.bjj.librarys.sectorlistview.SectorListView
         android:id="@+id/myRoundListView2"
         android:layout_width="400dp"
         android:layout_height="400dp"

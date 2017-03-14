@@ -9,8 +9,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.bjj.librarys.sectorlistview.SectorListView;
+
 public class MainActivity extends AppCompatActivity {
-    private MyRoundView myRoundListView;
+    private SectorListView myRoundListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,13 +21,13 @@ public class MainActivity extends AppCompatActivity {
         Point size = new Point();
         getWindowManager().getDefaultDisplay().getSize(size);
         int s = size.x > size.y ? size.y : size.x;
-        myRoundListView = (MyRoundView) findViewById(R.id.myRoundListView);
+        myRoundListView = (SectorListView) findViewById(R.id.myRoundListView);
         myRoundListView.getLayoutParams().width = s;
         myRoundListView.getLayoutParams().height = s;
         myRoundListView.setText("哈哈");
         myRoundListView.setAdapter(new MyAdapter());
 
-        MyRoundView myRoundListView2 = (MyRoundView) findViewById(R.id.myRoundListView2);
+        SectorListView myRoundListView2 = (SectorListView) findViewById(R.id.myRoundListView2);
         myRoundListView2.setText("哈哈");
         myRoundListView2.setAdapter(new MyAdapter());
     }
