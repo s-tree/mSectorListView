@@ -74,6 +74,7 @@ public class RoundListView extends ViewGroup {
         for(int i = 0 ; i < maxVisibleItemCount +2 && i < baseAdapter.getCount(); i++){
             addView(baseAdapter.getView(i,null,this));
         }
+        requestLayout();
     }
 
     public void setMaxShow(int number){
