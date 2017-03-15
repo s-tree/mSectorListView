@@ -86,7 +86,7 @@ public class SectorView extends View {
         }
         if(!TextUtils.isEmpty(text)){
             paint.setColor(textColor);
-            paint.setTextSize(16);
+            paint.setTextSize(textSize);
             if(orientation == 1){
                 canvas.drawText(text,( width - text_rect.width() )/4, height/4*3, paint);
             }

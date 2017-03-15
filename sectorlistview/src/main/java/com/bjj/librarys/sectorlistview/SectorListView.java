@@ -176,6 +176,7 @@ public class SectorListView extends FrameLayout implements SectorView.TouchListe
         if(isShown){
             return;
         }
+        isShown = true;
         AnimatorSet animatorSet = new AnimatorSet();
         AnimatorSet.Builder builder = null;
         if(needDissCenter){
@@ -205,6 +206,7 @@ public class SectorListView extends FrameLayout implements SectorView.TouchListe
         if(!isShown){
             return;
         }
+        isShown = false;
         AnimatorSet animatorSet = new AnimatorSet();
         AnimatorSet.Builder builder = null;
         if(needDissCenter){
@@ -233,7 +235,6 @@ public class SectorListView extends FrameLayout implements SectorView.TouchListe
         }else{
             openMenu(true);
         }
-        isShown = !isShown;
     }
 
     @Override
